@@ -1,0 +1,13 @@
+name: Git Status
+
+on:
+  workflow_dispatch:
+
+jobs:
+  print-versions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - run: git status
