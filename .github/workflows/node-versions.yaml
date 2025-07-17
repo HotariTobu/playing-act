@@ -13,3 +13,10 @@ jobs:
           node-version: 20
 
       - run: node -v
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - run: node -v
