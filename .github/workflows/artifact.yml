@@ -1,0 +1,45 @@
+name: Artifact
+
+on:
+  workflow_dispatch:
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create a Artifact
+        run: |
+          touch main
+          mkdir sub
+          touch sub/foo
+          touch sub/bar
+          mkdir sub/baz
+          touch sub/baz/z
+          
+      - name: Install tree
+        run: sudo apt update && sudo apt install -y tree
+
+      - name: Show directory tree
+        run: tree
+        
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: art
+          path: sub
+
+  download:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download a Build Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: art
+          path: .
+
+      - name: Install tree
+        run: sudo apt update && sudo apt install -y tree
+
+      - name: Show directory tree
+        run: tree
+        
