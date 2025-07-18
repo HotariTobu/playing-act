@@ -16,9 +16,6 @@ jobs:
           mkdir sub/baz
           touch sub/baz/z
           
-      - name: Install tree
-        run: sudo apt update && sudo apt install -y tree
-
       - name: Show directory tree
         run: tree
         
@@ -37,9 +34,6 @@ jobs:
         with:
           name: art
           path: .
-
-      - name: Install tree
-        run: sudo apt update && sudo apt install -y tree
 
       - name: Show directory tree
         run: tree
