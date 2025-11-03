@@ -1,0 +1,10 @@
+name: Python
+
+on:
+  workflow_dispatch:
+
+jobs:
+  print-python-version:
+    runs-on: [ubuntu-latest, windows-latest, macos-latest]
+    steps:
+      - run: python --version
